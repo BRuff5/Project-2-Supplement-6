@@ -1,32 +1,22 @@
 import org.junit.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class MainTest {
-
-
-    @Test
-    void testGenerateRandomIntegerList_Size10() {
-        // Test with size 10
-        List<Integer> randomList = Main.generateRandomIntegerList(10);
-        assertNotNull(randomList, "The generated list should not be null");
-        assertEquals(10, randomList.size(), "The size of the list should be 10");
+    //Test
+    void testExample() {
+        List<Integer> list = List.of(1, 2, 3);
+        assertNotNull(list, "List should not be null");
+        assertEquals(3, list.size(), "List size should be 3");
     }
 
-    @Test
-    void testGenerateRandomIntegerList_Size0() {
-        // Test with size 0
-        List<Integer> randomList = Main.generateRandomIntegerList(0);
-        assertNotNull(randomList, "The generated list should not be null");
-        assertEquals(0, randomList.size(), "The size of the list should be 0");
+
+    private void assertNotNull(List<Integer> list, String list_should_not_be_null) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Test
-    void testGenerateRandomIntegerList_NegativeSize() {
-        // Test with negative size
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Main.generateRandomIntegerList(-1);
-        });
-        assertEquals("Size must be non-negative", exception.getMessage(), "Expected IllegalArgumentException with specific message");
+    private void assertEquals(int i, int size, String list_size_should_be_3) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

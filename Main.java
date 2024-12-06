@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -8,7 +10,7 @@ import java.util.Random;
 * Function to sort a list in ascending order
 */
 
-public class Main{
+public class Main{ 
 
     private static final Random RANDOM = new Random();
 
@@ -30,15 +32,38 @@ public class Main{
         return integerList;
     }
 
+    /**
+     * Counts the occurrences of each integer in list.
+     *
+     * @param integerList the list of integers to count occurrences
+     * @return a Map where each integer is a key and its occurrences in the list
+     */
+    public static Map<Integer, Integer> countOccurrences(List<Integer> integerList) {
+        if (integerList == null) {
+            throw new IllegalArgumentException("Input list must not be null");
+        }
+
+        Map<Integer, Integer> occurrencesMap = new HashMap<>();
+        for (Integer number : integerList) {
+            occurrencesMap.put(number, occurrencesMap.getOrDefault(number, 0) + 1);
+        }
+        return occurrencesMap;
+    }
+
 
     /**
-     * The main method to demonstrate the functionality of the utility functions.
+     * The main method to demonstrate the functionality of functions
      *
-     * @param args command line arguments (not used).
+     * @param args command line arguments 
      */
     public static void main(String[] args) {
+
         // Generate a list of random integers
         List<Integer> randomList = generateRandomIntegerList(10);
         System.out.println("Random List: " + randomList);
+
+        // Count occurrences of each integer in the list
+        Map<Integer, Integer> occurrences = countOccurrences(randomList);
+        System.out.println("Occurrences: " + occurrences);
     }
 }
