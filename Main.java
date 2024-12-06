@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +51,22 @@ public class Main{
         return occurrencesMap;
     }
 
+    /**
+     * Sorts a list of integers in ascending order
+     *
+     * @param integerList the list of integers to be sorted
+     * @return a new List of integers sorted in ascending order.
+     */
+    public static List<Integer> sortIntegerList(List<Integer> integerList) {
+        if (integerList == null) {
+            throw new IllegalArgumentException("Input list must not be null");
+        }
+
+        List<Integer> sortedList = new ArrayList<>(integerList);
+        Collections.sort(sortedList);
+        return sortedList;
+    }
+
 
     /**
      * The main method to demonstrate the functionality of functions
@@ -65,5 +82,9 @@ public class Main{
         // Count occurrences of each integer in the list
         Map<Integer, Integer> occurrences = countOccurrences(randomList);
         System.out.println("Occurrences: " + occurrences);
+
+        // Sort the list in ascending order
+        List<Integer> sortedList = sortIntegerList(randomList);
+        System.out.println("Sorted List: " + sortedList);
     }
 }
